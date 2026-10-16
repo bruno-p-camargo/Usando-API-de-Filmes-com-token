@@ -1,0 +1,49 @@
+.filters {
+  background-color: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 1rem;
+  padding: 1.5rem;
+  margin-bottom: 3rem;
+}
+
+.filters-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: 1rem;
+}
+
+.field {
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+  font-size: 0.9rem;
+  color: var(--muted);
+}
+
+.field input,
+.field select {
+  padding: 0.7rem 0.8rem;
+  border-radius: 10px;
+  border: 1px solid #333;
+  background-color: var(--surface-2);
+  color: var(--text);
+  font-size: 1rem;
+  outline: none;
+}
+
+.field input:focus,
+.field select:focus {
+  border-color: var(--text);
+}
+
+.field select:disabled {
+  opacity: 0.5;
+}
+
+.filters-actions {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 1rem;
+  margin-top: 1.5rem;
+}
