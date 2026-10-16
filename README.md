@@ -1,41 +1,82 @@
-# Usando-API-de-Filmes-com-token
+# 🎬 API Filme React – Detalhes, Filtros e Filme Aleatório
 
-🎬 API Filme React – Página de Detalhes do Filme
+Segundo projeto da disciplina. Consome a [API do TMDB](https://developer.themoviedb.org/) usando uma chave de acesso (TOKEN) guardada em variável de ambiente.
 
-Segundo projeto da disciplina. Esta etapa dá continuidade ao projeto anterior, em que já foi realizado o consumo de uma API de filmes utilizando TOKEN (chave de acesso).
+## 🎯 Objetivo
 
-🎯 Objetivo
+Ao clicar em **"SAIBA MAIS"**, o usuário é direcionado a uma página que **carrega e exibe o filme escolhido**, buscando-o na API pelo `id` presente na URL (`/:id`).
 
-Implementar a navegação entre a listagem de filmes e uma página de detalhes. Ao clicar no botão "LER" ou "SAIBA MAIS" de um filme, o usuário será direcionado a uma nova página que carrega e exibe as informações daquele filme específico.
+## ✅ Funcionalidades
 
-✅ O que será realizado
-Manter a listagem de filmes já existente (consumo da API com token).
-Configurar o roteamento da aplicação com react-router-dom.
-Criar a rota dinâmica /filme/:id para a página de detalhes.
-Fazer o botão LER / SAIBA MAIS de cada card redirecionar para a rota do filme, passando o id.
-Na página de detalhes:
+- Listagem de filmes (populares por padrão) com pôster, ano e nota.
+- **Página de detalhes** com pôster, imagem de fundo, título, frase, gêneros, data de lançamento, nota, duração e sinopse.
+- Estados de **carregando** e **erro** (filme não encontrado, falha de rede ou chave ausente).
+- 🎲 **Filme aleatório**: sorteia um filme respeitando os filtros escolhidos e abre a página de detalhes. Também há "Sortear outro filme" dentro da página de detalhes.
+- **Filtros**: busca por título, gênero, ano de lançamento, nota mínima e ordenação (populares, melhor avaliados, mais recentes, mais antigos, maior bilheteria).
+- **Carregar mais** (paginação) e **Limpar filtros**.
+- Layout responsivo (celular e computador).
 
-Capturar o id da URL (useParams);
-Fazer uma nova requisição à API buscando apenas aquele filme;
-Exibir: pôster, título, sinopse, data de lançamento, nota e gêneros;
-Mostrar um estado de carregando enquanto os dados chegam;
-Tratar erros (ex.: filme não encontrado ou falha na requisição).
-Adicionar um botão/link para voltar à lista de filmes.
+> Ao buscar por título, a ordenação fica desativada e gênero/nota são aplicados sobre os resultados da busca. O sorteio ignora o campo de título.
 
-🛠️ Tecnologias
-React
-React Router DOM
-Axios ou fetch para as requisições
-API de filmes (com chave de acesso)
-CSS para estilização
+## 🛠️ Tecnologias
 
-🗂️ Estrutura prevista
+- React 18
+- React Router DOM 6
+- CSS puro (um arquivo `.css` por página/componente)
+- TMDB API
+
+## 🗂️ Estrutura
+
+```
+public/
+└── index.html
 src/
-├── components/     # Componentes reutilizáveis (ex.: card do filme)
-├── pages/
-│   ├── Home/       # Lista de filmes
-│   └── Filme/      # Detalhes do filme
+├── index.js                 # Ponto de entrada (BrowserRouter)
+├── App.js                   # Rotas: "/" e "/:id"
+├── global.css               # Variáveis de cor, botões e mensagens
 ├── services/
-│   └── api.js      # Configuração da API
-├── routes.js       # Definição das rotas
-└── App.js
+│   └── api.js               # Todas as chamadas à API
+├── components/
+│   ├── Header/              # Cabeçalho
+│   ├── Filters/             # Formulário de filtros + botões
+│   └── MovieCard/           # Card de filme da listagem
+└── pages/
+    ├── home/                # Lista, filtros e sorteio
+    └── movie/               # Detalhes do filme
+```
+
+## 🔐 Variáveis de ambiente
+
+Crie um arquivo `.env` na raiz do projeto (ao lado do `package.json`):
+
+```
+REACT_APP_KEY=sua_chave_aqui
+```
+
+> ⚠️ **Não envie o `.env` para o GitHub.** Ele já está no `.gitignore`. O arquivo `.env.example` serve só de modelo.
+
+## ▶️ Como executar
+
+```bash
+npm install
+# crie o .env (veja acima)
+npm start
+```
+
+A aplicação abre em `http://localhost:3000`. Sempre reinicie o `npm start` depois de alterar o `.env`.
+
+Para gerar a versão de produção: `npm run build`.
+
+## 📚 Referências
+
+- Repositório base: https://github.com/profdiegocandido/api-filme-react
+- Vídeo 1: https://www.youtube.com/watch?v=XqxUHVVO7-U
+- Vídeo 2: https://www.youtube.com/watch?v=b6N29J_utw4
+
+## 📅 Entrega
+
+A atividade **não será aceita em atraso**.
+
+## 👤 Autor
+
+**Seu nome** – [@seu-usuario](https://github.com/seu-usuario)

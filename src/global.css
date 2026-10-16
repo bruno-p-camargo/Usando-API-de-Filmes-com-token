@@ -1,0 +1,79 @@
+:root {
+  --bg: #000000;
+  --surface: #161616;
+  --surface-2: #212121;
+  --border: #2e2e2e;
+  --text: #ffffff;
+  --muted: #bdbdbd;
+  --accent: #ffd54f;
+  --danger: #ff8a80;
+  --radius: 14px;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "League Spartan", sans-serif;
+}
+
+body {
+  background-color: var(--bg);
+  color: var(--text);
+  line-height: 1.4;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+img {
+  display: block;
+  max-width: 100%;
+}
+
+/* ---------- botões (usados nas duas páginas) ---------- */
+.btn {
+  display: inline-block;
+  padding: 0.7rem 2.2rem;
+  border: 1px solid transparent;
+  border-radius: 15px;
+  background-color: var(--text);
+  color: #212121;
+  font-weight: 800;
+  font-size: 0.8rem;
+  cursor: pointer;
+  transition: transform 250ms;
+}
+
+.btn:hover:not(:disabled) {
+  transform: scale(1.05);
+}
+
+.btn:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.btn-outline {
+  background-color: transparent;
+  color: var(--text);
+  border-color: #555;
+}
+
+.btn-accent {
+  background-color: var(--accent);
+  font-size: 0.95rem;
+}
+
+/* ---------- mensagens de status ---------- */
+.message {
+  text-align: center;
+  margin: 2rem 0;
+  color: var(--muted);
+}
+
+.message.error {
+  color: var(--danger);
+}
